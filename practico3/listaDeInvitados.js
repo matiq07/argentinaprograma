@@ -1,4 +1,4 @@
-// objetivo: dada lista de nombres ->  devuelva listaDeInvitados(en esta lista no debe estar ni Jose ni Maria)
+
 
 let personas = ["jose", "Maria", "Juan", "Andres", "Lionel", "Sofia", "Leandro", "Emilia"];
 let rechazados = [];
