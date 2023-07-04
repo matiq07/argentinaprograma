@@ -3,15 +3,19 @@
 let personas = ["jose", "Maria", "Juan", "Andres", "Lionel", "Sofia", "Leandro", "Emilia"];
 let rechazados = [];
 let admitidos = [];
+let i= 0
+while (i<personas.length){
 
-for (let i=0; i<personas.length; i++){
     if(personas[i]==="jose" || personas[i]=="Maria"){
-        rechazados += [personas[i]];
+        rechazados.unshift(personas[i]);
     }else{
-        admitidos += [personas[i]];
+        admitidos.unshift(personas[i]);
     }
+    i+=1
 
 }
 
-console.log(rechazados)
-console.log(admitidos)
+console.log("La lista de invitados rechazados es:")
+rechazados.forEach(elemento=> console.log(elemento))
+console.log("La lista de invitados admitidos es:")
+admitidos.forEach(elemento=> console.log(elemento));
