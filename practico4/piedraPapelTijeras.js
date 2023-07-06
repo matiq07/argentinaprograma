@@ -6,13 +6,14 @@ function numerosAleatoriosEntre(min, max){
 
 let jugadas= ["piedra", "papel", "tijeras"]
 
-
+//2. devuelve una jugada valida la computadora
 function obetenerJugadaComputadora(){
 return jugadas[numerosAleatoriosEntre(0,2)];
 }
-console.log(obetenerJugadaComputadora())
 
-const readlineSync = require('readline-sync');
+
+//3. devuelve una jugada valida que ingreso el usuario
+let readlineSync = require('readline-sync');
 let jugada = readlineSync.question("ingresa eleccion de jugada:\n");
 function ObtenerJugadaUsuario(jugada){
     return jugada;
@@ -35,18 +36,30 @@ function papelGanaAPiedra(jugador1,jugador2){
 
 
 function gana(jugador1, jugador2){
-   return piedraGanaATijera(jugador1,jugador2) || tijeraGanaAPapel(jugador1,jugador2) || papelGanaAPiedra(jugador1,jugador2)
+   return (piedraGanaATijera(jugador1,jugador2) || tijeraGanaAPapel(jugador1,jugador2) || papelGanaAPiedra(jugador1,jugador2))
 }
 
-function quienGana(judada_maquina, judada_usuario){
+
+//4. 
+function determinarGanador(judada_maquina, judada_usuario){
     if (gana(judada_maquina,judada_usuario)){
-        return "Jugador1"
+        return "Gana la computadora"
     }else if (gana(judada_usuario,judada_maquina)){
-        return "Jugador2"
-    }else{
+        return "Gana el usuario"
+        }else{
         return "Empate"
     }
 }
 
-quienGana(obetenerJugadaComputadora(),ObtenerJugadaUsuario(jugada))
-console.log(quienGana(obetenerJugadaComputadora(), ObtenerJugadaUsuario(jugada)))
+//5. 
+let jugadaComputadora = obetenerJugadaComputadora();
+let jugadaUsuario = ObtenerJugadaUsuario(jugada);
+let resultadoJuego = determinarGanador(jugadaComputadora,jugadaUsuario);
+
+
+//6.
+console.log("La computadora eligio:", jugadaComputadora, "\nEl usuario eligio: ", jugadaUsuario);
+console.log("El resultado fue:", resultadoJuego);
+
+/* quienGana(obetenerJugadaComputadora(),ObtenerJugadaUsuario(jugada))
+console.log(quienGana(obetenerJugadaComputadora(), ObtenerJugadaUsuario(jugada))) */
